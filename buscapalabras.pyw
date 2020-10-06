@@ -1,6 +1,5 @@
 import tkinter as tk
-import unicodedata
-import threading
+import os, threading, unicodedata
 
 
 class Application(tk.Frame):
@@ -50,7 +49,7 @@ class Application(tk.Frame):
         letters = self.entry.get()
         self.entry.config(state="disabled")
         self.listbox.delete(0, tk.END)
-        with open('palabras.txt', 'r') as words_file:
+        with open(os.path.dirname(__file__) + "/palabras.txt", 'r') as words_file:
             for line in words_file:
                 word = line.strip()
                 if len(word) > len(letters):
