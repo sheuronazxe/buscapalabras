@@ -49,7 +49,7 @@ class Application(tk.Frame):
         letters = self.entry.get()
         self.entry.config(state="disabled")
         self.listbox.delete(0, tk.END)
-        with open(os.path.dirname(__file__) + "/palabras.txt", 'r') as words_file:
+        with open(os.path.dirname(__file__) + "/palabras.txt") as words_file:
             for line in words_file:
                 word = line.strip()
                 if len(word) > len(letters):
